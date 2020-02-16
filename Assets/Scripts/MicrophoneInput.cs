@@ -50,7 +50,7 @@ public class MicrophoneInput : MonoBehaviour {
 	void UpdateMicrophone(){
 		audioSource.Stop(); 
 		//Start recording to audioclip from the mic
-		audioSource.clip = Microphone.Start(microphone, true, 1, audioSampleRate);
+		audioSource.clip = Microphone.Start(microphone, true, 10, audioSampleRate);
 		audioSource.loop = true; 
 		// Mute the sound with an Audio Mixer group becuase we don't want the player to hear it
 		Debug.Log(Microphone.IsRecording(microphone).ToString());
