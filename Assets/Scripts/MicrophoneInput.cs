@@ -9,11 +9,11 @@ public class MicrophoneInput : MonoBehaviour {
 	public int audioSampleRate = 44100;
 	public string microphone;
 	public FFTWindow fftWindow;
-	public Dropdown micDropdown;
-	public Slider thresholdSlider;
+    //public Dropdown micDropdown;
+    //public Slider thresholdSlider;
 
-	private List<string> options = new List<string>();
-	private int samples = 8192; 
+    private List<string> options = new List<string>();
+    private int samples = 8192; 
 	private AudioSource audioSource;
 
 	void Start() {
@@ -30,7 +30,8 @@ public class MicrophoneInput : MonoBehaviour {
 			}
 			options.Add(device);
 		}
-		//microphone = options[PlayerPrefsManager.GetMicrophone ()];
+		microphone = options[PlayerPrefs.GetInt(microphone)];
+
 		//minThreshold = PlayerPrefsManager.GetThreshold ();
 
 		//add mics to dropdown
@@ -49,7 +50,7 @@ public class MicrophoneInput : MonoBehaviour {
 	void UpdateMicrophone(){
 		audioSource.Stop(); 
 		//Start recording to audioclip from the mic
-		audioSource.clip = Microphone.Start(microphone, true, 10, audioSampleRate);
+		audioSource.clip = Microphone.Start(microphone, true, 1, audioSampleRate);
 		audioSource.loop = true; 
 		// Mute the sound with an Audio Mixer group becuase we don't want the player to hear it
 		Debug.Log(Microphone.IsRecording(microphone).ToString());
@@ -93,7 +94,7 @@ public class MicrophoneInput : MonoBehaviour {
 		{
 			a += Mathf.Abs(s);
 		}
-        Debug.Log("AvergeVolume" + a / 256);
+        Debug.Log("AvergeVolume" + a*1000000 / 256);
 		return a/256;
 	}
 	
