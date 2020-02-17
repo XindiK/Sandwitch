@@ -7,18 +7,50 @@ using UnityEngine;
 
 public class myMixer : MonoBehaviour
 {
+    private Vector3 rotation;
+    private float normRot;
     private AudioMixer audioMixer;
     private AudioSource audioSource;
+    [Range (-30, 30)]
+    public float testNum;
+
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myPitch", 0.5f);
+        rotation = GetComponent<Transform>().rotation.eulerAngles;
+        normRot = Mathf.Abs(rotation[0]) % 360;
+        //float rotationX = Remap(Mathf.Abs(rotation[0]) % 360, 0, 360, 0.5f,2.0f);
+        float rotationPitch = getPitchFromRotation();
+
+        Debug.Log("rotationPitch: " + rotationPitch);
+        Debug.Log("rotation: " + rotation);
+        Debug.Log("rotation.x: " + rotation.x);
+        Debug.Log("abs: " + Mathf.Abs(rotation[0]));
+        Debug.Log("normRot: " + normRot);
+        Debug.Log("testNum" + Mathf.Abs(testNum));
+        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myPitch", rotationPitch);
+    }
+
+    private float getPitchFromRotation()
+    {
+        if (Mathf.Abs(rotation[0]) % 360 >= 0 && Mathf.Abs(rotation[0]) % 360 <= 180){
+            return Remap(Mathf.Abs(rotation[0]) % 360, 0, 180, 1.0f, 2.0f);
+        }
+        else //bwtn 180 - 360
+        {
+            return Remap(Mathf.Abs(rotation[0]) % 360, 180, 360, 0.5f, 1.0f);
+        }
+    }
+    private float Remap(float value, float a1, float b1, float a2, float b2)
+    {
+        return (value - a1) / (b1 - a1) * (b2 - a2) + a2;
     }
 }
