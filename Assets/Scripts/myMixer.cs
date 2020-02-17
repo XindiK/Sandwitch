@@ -26,7 +26,7 @@ public class myMixer : MonoBehaviour
     void Update()
     {
         rotation = GetComponent<Transform>().rotation.eulerAngles;
-        normRot = Mathf.Abs(rotation[0]) % 360;
+        normRot = Mathf.Abs(rotation.y) % 360;
         //float rotationX = Remap(Mathf.Abs(rotation[0]) % 360, 0, 360, 0.5f,2.0f);
         float rotationPitch = getPitchFromRotation();
 
@@ -41,12 +41,12 @@ public class myMixer : MonoBehaviour
 
     private float getPitchFromRotation()
     {
-        if (Mathf.Abs(rotation[0]) % 360 >= 0 && Mathf.Abs(rotation[0]) % 360 <= 180){
-            return Remap(Mathf.Abs(rotation[0]) % 360, 0, 180, 1.0f, 2.0f);
+        if (normRot >= 0 && normRot <= 180){
+            return Remap(normRot, 0, 180, 1.0f, 2.0f);
         }
         else //bwtn 180 - 360
         {
-            return Remap(Mathf.Abs(rotation[0]) % 360, 180, 360, 0.5f, 1.0f);
+            return Remap(normRot, 180, 360, 0.5f, 1.0f);
         }
     }
     private float Remap(float value, float a1, float b1, float a2, float b2)
