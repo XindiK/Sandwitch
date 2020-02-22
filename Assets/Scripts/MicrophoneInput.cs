@@ -94,7 +94,7 @@ public class MicrophoneInput : MonoBehaviour {
 		{
 			a += Mathf.Abs(s);
 		}
-        Debug.Log("AvergeVolume" + a*1000000 / 256);
+        //Debug.Log("AvergeVolume" + a*1000000 / 256);
 		return a/256;
 	}
 	
@@ -118,7 +118,7 @@ public class MicrophoneInput : MonoBehaviour {
 		}
 		fundamentalFrequency = i * audioSampleRate / samples;
 		frequency = fundamentalFrequency;
-        Debug.Log("fundamental"+ fundamentalFrequency);
+        //Debug.Log("fundamental"+ fundamentalFrequency);
 		return fundamentalFrequency;
 	}
 }
