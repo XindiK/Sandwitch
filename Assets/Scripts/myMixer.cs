@@ -8,9 +8,9 @@ using UnityEngine;
 public class myMixer : MonoBehaviour
 {
     public float rotationPitch;
+    public float normRot;
 
     private Vector3 rotation;
-    private float normRot;
     private AudioMixer audioMixer;
     private AudioSource audioSource;
 
