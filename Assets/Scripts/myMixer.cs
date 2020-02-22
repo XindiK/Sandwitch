@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class myMixer : MonoBehaviour
 {
-    public static float rotationPitch;
+    public float rotationPitch;
 
     private Vector3 rotation;
     private float normRot;
