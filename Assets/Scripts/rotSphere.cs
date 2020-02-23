@@ -25,7 +25,7 @@ public class rotSphere : MonoBehaviour
         //rotationPitch = GetComponent<myMixer>().rotationPitch * 10;
 
         mult = _myMixer.normRot;
-        rotSpeed = mult * 10f * myTime;
+        rotSpeed = mult * 2f * myTime;
         Debug.Log("rotSpeed:" + rotSpeed);
         Debug.Log("rp" + _myMixer.normRot);
         transform.Rotate(new Vector3(0, rotSpeed, 0));
