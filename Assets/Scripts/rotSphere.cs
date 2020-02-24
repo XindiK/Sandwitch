@@ -13,6 +13,7 @@ public class rotSphere : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Mic = GameObject.Find("Mic");
         myTime = Time.deltaTime;
         _myMixer = Mic.GetComponent<myMixer>();
     }
