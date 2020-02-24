@@ -49,7 +49,7 @@ public class myMixer : MonoBehaviour
         }
     }
 
-    private float Remap(float value, float a1, float b1, float a2, float b2)
+    public float Remap(float value, float a1, float b1, float a2, float b2)
     {
         return (value - a1) / (b1 - a1) * (b2 - a2) + a2;
     }

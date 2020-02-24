@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class rotSphere : MonoBehaviour
 {
-    float rotSpeed;
+    public float rotSpeed;
     float myTime;
     float mult;
     public GameObject Mic;
     private myMixer _myMixer;
+    private float rotationPitch;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +26,12 @@ public class rotSphere : MonoBehaviour
     {
         //rotationPitch = GetComponent<myMixer>().rotationPitch * 10;
 
-        mult = _myMixer.normRot;
+        rotationPitch = _myMixer.getPitchFromRotation();
+        mult = _myMixer.Remap(rotationPitch, 0.75f, 1.5f, 1, 360);
+        //mult = _myMixer.normRot;
         rotSpeed = mult * 2f * myTime;
         Debug.Log("rotSpeed:" + rotSpeed);
-        Debug.Log("rp" + _myMixer.normRot);
+        Debug.Log("rp" + rotationPitch);
         transform.Rotate(new Vector3(0, rotSpeed, 0));
         
     }
