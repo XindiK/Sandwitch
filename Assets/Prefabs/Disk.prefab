@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1591106723533223177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3107041843569689654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7820d5b426d04d84ea47dcec3255093c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Torus: {fileID: 3107041843569689654}
-  Mic: {fileID: 6803535450628759255, guid: 11d91ca4a7a1b0a46b144fa2bd7b724a, type: 3}
-  mult: 0
 --- !u!1 &3749739385374637341
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +100,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3749739385374637341}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -125,7 +110,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13177a7929fc94508aeae20a9a650440, type: 2}
+  - {fileID: 2100000, guid: cdaad8a8cf09fb4488158f3a6cfd850d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,7 +133,7 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.004
+    widthMultiplier: 0.04
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -162,22 +147,22 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.08117381
-        value: 0.6422951
-        inSlope: -10.035204
-        outSlope: -10.035204
+        time: 0.2736738
+        value: 0.60340625
+        inSlope: -2.7182572
+        outSlope: -2.7182572
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.35280713
+        inWeight: 0.32401276
         outWeight: 0.5206665
       - serializedVersion: 3
-        time: 0.16958869
-        value: 0.00819397
-        inSlope: 0
-        outSlope: 0
+        time: 0.5070902
+        value: 0
+        inSlope: -2.4839058
+        outSlope: -2.4839058
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.35708937
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -234,6 +219,7 @@ GameObject:
   - component: {fileID: 3749739386607272590}
   - component: {fileID: 3749739386607272591}
   - component: {fileID: 3749739386607272584}
+  - component: {fileID: 7789829859310984577}
   m_Layer: 0
   m_Name: Disk
   m_TagString: Untagged
@@ -250,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 3749739386607272585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children:
   - {fileID: 3749739385374637340}
   - {fileID: 2109153301012018725}
@@ -425,6 +411,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7789829859310984577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3749739386607272585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7820d5b426d04d84ea47dcec3255093c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 3749739386607272585}
+  Mic: {fileID: 6803535450628759255, guid: 11d91ca4a7a1b0a46b144fa2bd7b724a, type: 3}
+  mult: 0
 --- !u!1001 &9208434660389992446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -509,12 +510,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7da5c4bb2165eea46b997bafc11d0ab0, type: 3}
---- !u!1 &3107041843569689654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6112651955745567688, guid: 7da5c4bb2165eea46b997bafc11d0ab0,
-    type: 3}
-  m_PrefabInstance: {fileID: 9208434660389992446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2109153301012018725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7102134047733268955, guid: 7da5c4bb2165eea46b997bafc11d0ab0,
