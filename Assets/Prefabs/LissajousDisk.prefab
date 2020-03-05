@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5976958740600488043}
   - component: {fileID: 5976958740600488040}
   - component: {fileID: 3314261178325591712}
+  - component: {fileID: 3392790523083025041}
   m_Layer: 0
   m_Name: LissajousDisk
   m_TagString: Untagged
@@ -100,12 +101,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5976958740600488047}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8378803017d68444f9da182250c3d637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed2: 0
+--- !u!114 &3392790523083025041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976958740600488047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953ae8e6a07e87e49aa5815260fafe24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSpeed: 600
+  diskRotateSpeed: 600
+  particleRotationObject: {fileID: 6744619443445920143}
+  Mic: {fileID: 6803535450628759255, guid: 11d91ca4a7a1b0a46b144fa2bd7b724a, type: 3}
 --- !u!1 &5976958741498036219
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +253,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 10
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.04
@@ -332,7 +349,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744619443445920143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49e219c78d3792844a195793547308d8, type: 3}
   m_Name: 
