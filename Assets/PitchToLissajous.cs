@@ -21,10 +21,10 @@ public class PitchToLissajous : MonoBehaviour
         Mic = GameObject.Find("Mic");
         _myMixer = Mic.GetComponent<myMixer>();
         rotationPitch = _myMixer.getPitchFromRotation(); //ratio between 0.5 to 2 (granularity = 2 decimal places)
-        float RatioFromPitch = rotationPitch * 10;//lissajous ratio
+        float RatioFromPitch = rotationPitch;//lissajous ratio
 
         //Lissajous formula:  particleSpeed/diskRotateSpeed = rotationPitch ratio
-        particleSpeed = 100;
+        particleSpeed = 400;
         diskRotateSpeed = particleSpeed * RatioFromPitch;
 
     }
