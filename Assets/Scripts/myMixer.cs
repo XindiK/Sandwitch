@@ -37,7 +37,7 @@ public class myMixer : MonoBehaviour
         float rotationPitch = getPitchFromRotation();
         float rotationRoom = Remap(normY, 1, 360, -10000, 0);
 
-        Debug.Log("rotationPitch: " + rotationPitch);
+        //Debug.Log("rotationPitch: " + rotationPitch);
         //Debug.Log("rotation: " + rotation);
         //Debug.Log("rotation.x: " + rotation.x);
         //Debug.Log("abs: " + Mathf.Abs(rotation[0]));
