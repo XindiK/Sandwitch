@@ -32,19 +32,22 @@ public class MicrophoneInput : MonoBehaviour {
 		}
 		microphone = options[PlayerPrefs.GetInt(microphone)];
 
-		//minThreshold = PlayerPrefsManager.GetThreshold ();
+        /*minThreshold = PlayerPrefsManager.GetThreshold();
 
-		//add mics to dropdown
-		//micDropdown.AddOptions(options);
-		//micDropdown.onValueChanged.AddListener(delegate {
-		//	micDropdownValueChangedHandler(micDropdown);
-		//});
+        add mics to dropdown
 
-		//thresholdSlider.onValueChanged.AddListener(delegate {
-		//	thresholdValueChangedHandler(thresholdSlider);
-		//});
-		//initialize input with default mic
-		UpdateMicrophone ();
+        micDropdown.AddOptions(options);
+        micDropdown.onValueChanged.AddListener(delegate
+        {
+            micDropdownValueChangedHandler(micDropdown);
+        });
+
+        thresholdSlider.onValueChanged.AddListener(delegate
+        {
+            thresholdValueChangedHandler(thresholdSlider);
+        });*/
+        //initialize input with default mic
+        UpdateMicrophone ();
 	}
 
 	void UpdateMicrophone(){
@@ -85,6 +88,12 @@ public class MicrophoneInput : MonoBehaviour {
 		minThreshold = thresholdSlider.value;
 	}
 	
+    public bool volumeBelowThreshold(float thresholdVolume)
+    {
+        float averagedVolume = GetAveragedVolume();
+        return (averagedVolume <= thresholdVolume);
+    }
+
 	public float GetAveragedVolume()
 	{ 
 		float[] data = new float[256];
@@ -94,7 +103,6 @@ public class MicrophoneInput : MonoBehaviour {
 		{
 			a += Mathf.Abs(s);
 		}
-        //Debug.Log("AvergeVolume" + a*1000000 / 256);
 		return a/256;
 	}
 	
@@ -107,7 +115,7 @@ public class MicrophoneInput : MonoBehaviour {
 		int i = 0;
 		for (int j = 1; j < samples; j++)
 		{
-			if(data[j] > minThreshold) // volumn must meet minimum threshold
+			if(data[j] > minThreshold) // volume must meet minimum threshold
 			{
 				if ( s < data[j] )
 				{
@@ -118,7 +126,6 @@ public class MicrophoneInput : MonoBehaviour {
 		}
 		fundamentalFrequency = i * audioSampleRate / samples;
 		frequency = fundamentalFrequency;
-        //Debug.Log("fundamental"+ fundamentalFrequency);
 		return fundamentalFrequency;
 	}
 }
