@@ -37,6 +37,6 @@ public class timeChange : MonoBehaviour
         else
         // if ratio is 1, very shorter trail time (enough to draw the shape)
         //larger ratio needs larger trail time
-            return 1f;
+            return 0.5f;
     }
 }
