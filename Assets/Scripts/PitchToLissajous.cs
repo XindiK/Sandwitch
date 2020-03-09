@@ -12,6 +12,7 @@ public class PitchToLissajous : MonoBehaviour
     public GameObject Mic;
     private myMixer _myMixer;
     float rotationPitch;
+    public float mult;
 
     // Start is called before the first frame update
     void Start()
@@ -20,18 +21,21 @@ public class PitchToLissajous : MonoBehaviour
 
         Mic = GameObject.Find("Mic");
         _myMixer = Mic.GetComponent<myMixer>();
-        rotationPitch = _myMixer.getPitchFromRotation(); //ratio between 0.5 to 2 (granularity = 2 decimal places)
-        float RatioFromPitch = rotationPitch; //lissajous ratio
-
-        //Lissajous formula:  particleSpeed/diskRotateSpeed = rotationPitch ratio
-        particleSpeed = 400;
-        diskRotateSpeed = particleSpeed * RatioFromPitch;
-
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        rotationPitch = Round(_myMixer.getPitchFromRotation(),1); //ratio between 0.5 to 2 (granularity = 2 decimal places; round to 1 decimal)
+        float RatioFromPitch = _myMixer.Remap(rotationPitch, 0.5f, 2, 0.05f, 10); //lissajous ratio
+
+        //Lissajous formula:  particleSpeed/diskRotateSpeed = rotationPitch ratio
+        particleSpeed = 100;
+        diskRotateSpeed = particleSpeed * RatioFromPitch;
+        Debug.Log("rotaionPitch:" + rotationPitch);
+        Debug.Log("rotaionPitch:" + rotationPitch);
         transform.Rotate(new Vector3(diskRotateSpeed * mytime, 0, 0));
         particleRotationObject.transform.Rotate(new Vector3(0, particleSpeed * mytime, 0));
 

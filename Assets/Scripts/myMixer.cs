@@ -39,7 +39,7 @@ public class myMixer : MonoBehaviour
 
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myPitch", rotationPitch);
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myRoom", rotationRoom);
-        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myDecay", rotationDecay);
+        //audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myDecay", rotationDecay);
 
     }
 
