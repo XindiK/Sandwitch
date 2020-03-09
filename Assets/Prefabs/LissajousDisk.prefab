@@ -139,13 +139,31 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.27000427
+        value: 0.7400055
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38212103
+        value: 0.5144995
+        inSlope: 2.863358
+        outSlope: 2.863358
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.41986388
+      - serializedVersion: 3
+        time: 0.69038224
+        value: 0.23000336
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -326,13 +344,31 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.27000427
+        value: 0.7400055
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38212103
+        value: 0.5144995
+        inSlope: 2.863358
+        outSlope: 2.863358
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.41986388
+      - serializedVersion: 3
+        time: 0.69038224
+        value: 0.23000336
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -497,6 +533,7 @@ MonoBehaviour:
   diskRotateSpeed: 600
   particleRotationObject: {fileID: 6744619443445920143}
   Mic: {fileID: 6803535450628759255, guid: 11d91ca4a7a1b0a46b144fa2bd7b724a, type: 3}
+  mult: 0
 --- !u!1 &5976958741498036219
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,13 +673,31 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.27000427
+        value: 0.7400055
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38212103
+        value: 0.5144995
+        inSlope: 2.863358
+        outSlope: 2.863358
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.41986388
+      - serializedVersion: 3
+        time: 0.69038224
+        value: 0.23000336
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -823,13 +878,31 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.27000427
+        value: 0.7400055
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.38212103
+        value: 0.5144995
+        inSlope: 2.863358
+        outSlope: 2.863358
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.41986388
+      - serializedVersion: 3
+        time: 0.69038224
+        value: 0.23000336
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
