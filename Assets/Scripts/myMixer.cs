@@ -7,12 +7,14 @@ using UnityEngine;
 
 public class myMixer : MonoBehaviour
 {
+    public GameObject Mic;
     public float rotationPitch;
     public float rotationRoom;
     public float rotationDecay = 1;
     public float normX;
     public float normY;
     public float normZ;
+    public float mult;
 
     private Vector3 rotation;
     private AudioMixer audioMixer;
@@ -28,16 +30,24 @@ public class myMixer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotation = GetComponent<Transform>().rotation.eulerAngles;
+        Mic = GameObject.Find("Mic");
+        rotation = Mic.GetComponent<Transform>().rotation.eulerAngles;
+        //rotation = GetComponent<Transform>().rotation.eulerAngles;
         normX = Mathf.Abs(rotation.x) % 360;
         normY = Mathf.Abs(rotation.y) % 360;
         normZ = Mathf.Abs(rotation.z) % 360;
 
         //float rotationX = Remap(Mathf.Abs(rotation[0]) % 360, 0, 360, 0.5f,2.0f);
         float rotationPitch = getPitchFromRotation();
+        float rotPitchMult = rotationPitch * mult;
         float rotationRoom = Remap(normY, 1, 360, -10000, 0);
 
-        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myPitch", rotationPitch);
+        Debug.Log("rotPitch: "+ rotationPitch);
+
+        audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myPitch", rotPitchMult);
+
+        Debug.Log("mult: " + mult);
+
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myRoom", rotationRoom);
         //audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myDecay", rotationDecay);
 

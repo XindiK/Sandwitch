@@ -38,16 +38,16 @@ public class Instantiate : MonoBehaviour
             GameObject disk = Instantiate(prefab, centerPos, rotation);
             disk.transform.SetParent(BigSphere.transform, false);
             
-            /*
             //right rotation
             Quaternion rotationR = Quaternion.AngleAxis(i * angle, Vector3.right);
             GameObject diskR = Instantiate(prefab, centerPos, rotationR);
             diskR.transform.SetParent(BigSphere.transform, false);
+
             //left rotation
             Quaternion rotationL = Quaternion.AngleAxis(i * angle, Vector3.left);
             GameObject diskL = Instantiate(prefab, centerPos, rotationL);
             diskL.transform.SetParent(BigSphere.transform, false);
-            */
+            
         }
     }
 }
