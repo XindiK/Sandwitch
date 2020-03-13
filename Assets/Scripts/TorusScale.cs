@@ -12,6 +12,7 @@ public class TorusScale : MonoBehaviour
     private float diskX;
     private float diskY;
     private float diskZ;
+    private float rotationRoom;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,9 @@ public class TorusScale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotationPitch = _myMixer.getPitchFromRotation();
-        mult = _myMixer.Remap(rotationPitch, 0.75f, 1.5f, 5f, 10);
+        //doesn't work :(
+        rotationRoom = _myMixer.rotationRoom;
+        mult = _myMixer.Remap(rotationRoom, -10000, 0, 0.5f, 20);
         transform.localScale = new Vector3(diskX*mult, diskY * mult, diskZ * mult);
     }
 }

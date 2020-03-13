@@ -16,8 +16,9 @@ public class timeChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("volume is " + GetComponent<MicrophoneInput>().GetAveragedVolume());
+        Debug.Log("volume is " + GetComponent<MicrophoneInput>().averagedVolume);
         trailTime = calculateTrailTime();
+        Debug.Log("Trail time:" + trailTime);
         for (int i = 0; i < 4; i++) {
             Disk[i].GetComponent<TrailRenderer>().time = trailTime;
         }
@@ -35,8 +36,10 @@ public class timeChange : MonoBehaviour
             return 0.01f;
         }
         else
-        // if ratio is 1, very shorter trail time (enough to draw the shape)
-        //larger ratio needs larger trail time
-            return 0.5f;
+            // if ratio is 1, very shorter trail time (enough to draw the shape)
+            //larger ratio needs larger trail time
+            return GetComponent<MicrophoneInput>().averagedVolume *1000;
+            //return 0.5f;
+            
     }
 }

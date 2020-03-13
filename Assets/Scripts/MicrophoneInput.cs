@@ -13,17 +13,30 @@ public class MicrophoneInput : MonoBehaviour {
     //public Slider thresholdSlider;
 
     private List<string> options = new List<string>();
-    private int samples = 8192; 
-	private AudioSource audioSource;
+    private int samples = 8192;
+    //private AudioSource audioSource;
+    public GameObject[] Mic;
+    public int numMic;
+    private AudioSource[] audioSources;
+    public float averagedVolume;
 
-	void Start() {
-		
+    AudioClip mic;
+    //private AudioSource audioSource;
 
-		//get components you'll need
-		audioSource = GetComponent<AudioSource> ();
+    void Start() {
+        mic = Microphone.Start(microphone, true, 10, audioSampleRate);
 
-		// get all available microphones
-		foreach (string device in Microphone.devices) {
+        for (int i = 0; i < numMic; i++) { 
+            //audioSources[i] = Mic[i].GetComponent<AudioSource>();
+            UpdateMicrophone(Mic[i].GetComponent<AudioSource>());
+            Debug.Log(Mic[i].GetComponent<AudioSource>().pitch);
+        }
+        
+        //get components you'll need
+        //audioSource = GetComponent<AudioSource> ();
+
+        // get all available microphones
+        foreach (string device in Microphone.devices) {
 			if (microphone == null) {
 				//set default mic to first mic found.
 				microphone = device;
@@ -47,13 +60,13 @@ public class MicrophoneInput : MonoBehaviour {
             thresholdValueChangedHandler(thresholdSlider);
         });*/
         //initialize input with default mic
-        UpdateMicrophone ();
+        
 	}
 
-	void UpdateMicrophone(){
+	void UpdateMicrophone(AudioSource audioSource){
 		audioSource.Stop(); 
 		//Start recording to audioclip from the mic
-		audioSource.clip = Microphone.Start(microphone, true, 10, audioSampleRate);
+		audioSource.clip = mic;
 		audioSource.loop = true; 
 		// Mute the sound with an Audio Mixer group becuase we don't want the player to hear it
 		Debug.Log(Microphone.IsRecording(microphone).ToString());
@@ -75,14 +88,14 @@ public class MicrophoneInput : MonoBehaviour {
 
     public void Update()
     {
-        GetAveragedVolume();
-        GetFundamentalFrequency();
+        //GetAveragedVolume(audioSources[0]);
+        //GetFundamentalFrequency();
     }
 
-    public void micDropdownValueChangedHandler(Dropdown mic){
-		microphone = options[mic.value];
-		UpdateMicrophone ();
-	}
+ //   public void micDropdownValueChangedHandler(Dropdown mic){
+	//	microphone = options[mic.value];
+	//	UpdateMicrophone ();
+	//}
 
 	public void thresholdValueChangedHandler(Slider thresholdSlider){
 		minThreshold = thresholdSlider.value;
@@ -90,11 +103,11 @@ public class MicrophoneInput : MonoBehaviour {
 	
     public bool volumeBelowThreshold(float thresholdVolume)
     {
-        float averagedVolume = GetAveragedVolume();
+        averagedVolume = GetAveragedVolume(audioSources[0]);
         return (averagedVolume <= thresholdVolume);
     }
 
-	public float GetAveragedVolume()
+	public float GetAveragedVolume(AudioSource audioSource)
 	{ 
 		float[] data = new float[256];
 		float a = 0;
@@ -105,27 +118,27 @@ public class MicrophoneInput : MonoBehaviour {
 		}
 		return a/256;
 	}
-	
-	public float GetFundamentalFrequency()
-	{
-		float fundamentalFrequency = 0.0f;
-		float[] data = new float[samples];
-		audioSource.GetSpectrumData(data,0,fftWindow);
-		float s = 0.0f;
-		int i = 0;
-		for (int j = 1; j < samples; j++)
-		{
-			if(data[j] > minThreshold) // volume must meet minimum threshold
-			{
-				if ( s < data[j] )
-				{
-					s = data[j];
-					i = j;
-				}
-			}
-		}
-		fundamentalFrequency = i * audioSampleRate / samples;
-		frequency = fundamentalFrequency;
-		return fundamentalFrequency;
-	}
+
+    public float GetFundamentalFrequency(AudioSource audioSource)
+    {
+        float fundamentalFrequency = 0.0f;
+        float[] data = new float[samples];
+        audioSource.GetSpectrumData(data, 0, fftWindow);
+        float s = 0.0f;
+        int i = 0;
+        for (int j = 1; j < samples; j++)
+        {
+            if (data[j] > minThreshold) // volume must meet minimum threshold
+            {
+                if (s < data[j])
+                {
+                    s = data[j];
+                    i = j;
+                }
+            }
+        }
+        fundamentalFrequency = i * audioSampleRate / samples;
+        frequency = fundamentalFrequency;
+        return fundamentalFrequency;
+    }
 }

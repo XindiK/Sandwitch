@@ -29,13 +29,13 @@ public class PitchToLissajous : MonoBehaviour
 
 
         rotationPitch = Round(_myMixer.getPitchFromRotation(),1); //ratio between 0.5 to 2 (granularity = 2 decimal places; round to 1 decimal)
-        float RatioFromPitch = _myMixer.Remap(rotationPitch, 0.5f, 2, 0.05f, 10); //lissajous ratio
+        float RatioFromPitch = _myMixer.Remap(rotationPitch, 0.5f, 2, 0.005f, 6); //lissajous ratio
 
         //Lissajous formula:  particleSpeed/diskRotateSpeed = rotationPitch ratio
         particleSpeed = 100;
         diskRotateSpeed = particleSpeed * RatioFromPitch;
         Debug.Log("rotaionPitch:" + rotationPitch);
-        Debug.Log("rotaionPitch:" + rotationPitch);
+        Debug.Log("ratioFromPitch:" + RatioFromPitch);
         transform.Rotate(new Vector3(diskRotateSpeed * mytime, 0, 0));
         particleRotationObject.transform.Rotate(new Vector3(0, particleSpeed * mytime, 0));
 

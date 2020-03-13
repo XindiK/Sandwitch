@@ -41,7 +41,7 @@ AudioMixerController:
   - guid: 4d4c4ffcd0e714649b6b46855d1065e8
     name: myPitch
   - guid: 8b3c911c11cf11242b6bc0fb670a1318
-    name: myRoom
+    name: myRoom1
   m_AudioMixerGroupViews:
   - guids:
     - a7835868f33a7c74e832645fb2a9d2ac
@@ -92,7 +92,9 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 253fca6b7b4405544b108906f20af15c
-  m_FloatValues: {}
+  m_FloatValues:
+    b6b6ffb027821d34c99043f0d77b6260: 11.2
+    4d4c4ffcd0e714649b6b46855d1065e8: 1.6
   m_TransitionOverrides: {}
 --- !u!244 &1236734030676772515
 AudioMixerEffectController:
