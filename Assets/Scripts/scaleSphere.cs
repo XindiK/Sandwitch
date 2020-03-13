@@ -22,7 +22,7 @@ public class scaleSphere : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("rotationPitch in scale: " + rotationPitch);
+        //Debug.Log("rotationPitch in scale: " + rotationPitch);
         prefab.localScale = new Vector3(startingScale*rotationPitch, startingScale * rotationPitch, startingScale * rotationPitch);
     }
 }

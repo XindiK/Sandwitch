@@ -41,7 +41,7 @@ AudioMixerController:
   - guid: 031f17da6d8479b4a8d5e111b4b53698
     name: myPitch
   - guid: 75383157b1abce5438f7aa0defdda887
-    name: MyExposedParam 1
+    name: myRoom
   m_AudioMixerGroupViews:
   - guids:
     - 1ed1fda7d29b53349a6d3fd2b9f677e0

@@ -29,7 +29,7 @@ public class MicrophoneInput : MonoBehaviour {
         for (int i = 0; i < numMic; i++) { 
             //audioSources[i] = Mic[i].GetComponent<AudioSource>();
             UpdateMicrophone(Mic[i].GetComponent<AudioSource>());
-            Debug.Log(Mic[i].GetComponent<AudioSource>().pitch);
+            //Debug.Log(Mic[i].GetComponent<AudioSource>().pitch);
         }
         
         //get components you'll need

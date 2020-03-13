@@ -16,9 +16,9 @@ public class timeChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("volume is " + GetComponent<MicrophoneInput>().averagedVolume);
+        //Debug.Log("volume is " + GetComponent<MicrophoneInput>().averagedVolume);
         trailTime = calculateTrailTime();
-        Debug.Log("Trail time:" + trailTime);
+        //Debug.Log("Trail time:" + trailTime);
         for (int i = 0; i < 4; i++) {
             Disk[i].GetComponent<TrailRenderer>().time = trailTime;
         }

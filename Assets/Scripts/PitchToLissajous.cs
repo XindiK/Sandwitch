@@ -34,8 +34,8 @@ public class PitchToLissajous : MonoBehaviour
         //Lissajous formula:  particleSpeed/diskRotateSpeed = rotationPitch ratio
         particleSpeed = 100;
         diskRotateSpeed = particleSpeed * RatioFromPitch;
-        Debug.Log("rotaionPitch:" + rotationPitch);
-        Debug.Log("ratioFromPitch:" + RatioFromPitch);
+        //Debug.Log("rotaionPitch:" + rotationPitch);
+        //Debug.Log("ratioFromPitch:" + RatioFromPitch);
         transform.Rotate(new Vector3(diskRotateSpeed * mytime, 0, 0));
         particleRotationObject.transform.Rotate(new Vector3(0, particleSpeed * mytime, 0));
 

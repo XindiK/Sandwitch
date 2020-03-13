@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 6616525507698765338}
-  Mic: {fileID: 6803535450628759255, guid: 11d91ca4a7a1b0a46b144fa2bd7b724a, type: 3}
+  Mic: {fileID: 0}
   mult: 0
 --- !u!1001 &1157900605889846125
 PrefabInstance:

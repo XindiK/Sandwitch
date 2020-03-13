@@ -40,12 +40,12 @@ public class myMixer : MonoBehaviour
         //float rotationX = Remap(Mathf.Abs(rotation[0]) % 360, 0, 360, 0.5f,2.0f);
         float rotationPitch = getPitchFromRotation();
         float rotPitchMult = rotationPitch + pitchIndex;
-        float rotationRoom = Remap(normY, 1, 360, -10000, 0);
+        
 
-        Debug.Log("rotPitch: "+ rotationPitch);
-
+        //Debug.Log("piitch " + rotationPitch);
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myPitch", rotPitchMult);
-
+        //Debug.Log("RR in mixer: " + rotationRoom);
+        rotationRoom = Remap(normY, 1, 360, -10000, 0);
         audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myRoom", rotationRoom);
         //audioSource.outputAudioMixerGroup.audioMixer.SetFloat("myDecay", rotationDecay);
 
@@ -60,6 +60,12 @@ public class myMixer : MonoBehaviour
         {
             return Remap(normX, 180, 360, 0.5f, 1.0f);
         }
+    }
+
+    public float getRotationRoomForVisual()
+    {
+        float rotationRoom = Remap(normY, 1, 360, 0.2f, 2.5f);
+        return rotationRoom;
     }
 
 

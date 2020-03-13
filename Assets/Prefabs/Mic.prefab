@@ -149,6 +149,9 @@ MonoBehaviour:
   audioSampleRate: 44100
   microphone: 
   fftWindow: 0
+  Mic: []
+  numMic: 0
+  averagedVolume: 0
 --- !u!114 &6803535450628759210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,8 +171,8 @@ MonoBehaviour:
   normX: 0
   normY: 0
   normZ: 0
-  mult: 0
-  prefab: {fileID: 0}
+  pitchIndex: 0
+  prefab: {fileID: 6803535450628759208}
 --- !u!114 &6803535450628759213
 MonoBehaviour:
   m_ObjectHideFlags: 0

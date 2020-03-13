@@ -41,7 +41,7 @@ AudioMixerController:
   - guid: 4d4c4ffcd0e714649b6b46855d1065e8
     name: myPitch
   - guid: 8b3c911c11cf11242b6bc0fb670a1318
-    name: myRoom1
+    name: myRoom
   m_AudioMixerGroupViews:
   - guids:
     - a7835868f33a7c74e832645fb2a9d2ac
